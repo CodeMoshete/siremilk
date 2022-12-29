@@ -4,7 +4,7 @@ const cors = require('cors');
 const debug = require('debug')('siremilk-server');
 const express = require('express');
 const path = require('path');// Load configuration
-const siremilkRouter = require('./src/routes.js');
+const siremilkRouter = require('./src/routes');
 
 global.appRoot = path.resolve(__dirname);
 

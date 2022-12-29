@@ -1,16 +1,16 @@
 const debug = require('debug')('siremilk-server');
 const express = require('express');
 const util = require('util');
-const siremilkManager = require('./siremilkManager.js');
-const siremilkDashboard = require('./siremilkDashboard.js');
-const adminDashboard = require('./adminDashboard.js');
+const siremilkManager = require('./siremilkManager');
+const siremilkDashboard = require('./siremilkDashboard');
+const adminDashboard = require('./adminDashboard');
 
 const router = express.Router();
 
 router.route('/logFeeding')
   .post(async (req, res) => {
     debug(`Logging Feeding!\n${util.inspect(req.body)}`);
-    const amount = req.body.amount;
+    const { amount } = req.body;
     siremilkManager.logFeeding(amount);
     res.sendStatus(200);
   });
@@ -18,7 +18,7 @@ router.route('/logFeeding')
 router.route('/removeEntry')
   .post(async (req, res) => {
     debug(`Removing siremilk entry!\n${util.inspect(req.body)}`);
-    const timestamp = req.body.timestamp;
+    const { timestamp } = req.body;
     siremilkManager.removeEntry(timestamp);
     res.sendStatus(200);
   });

@@ -23,7 +23,7 @@ function submitGuestbookEntry() {
   fetch(request)
     .then()
     .then(() => {
-      document.getElementById('amountField').value = ''; 
+      document.getElementById('amountField').value = '';
       location.reload();
     });
 }

@@ -6,7 +6,7 @@ const chalk = require('chalk');
 exports.logFeeding = function logFeeding(feedingAmount) {
   debug(`Log feeding for ${feedingAmount} oz`);
   const numericalAmount = parseFloat(feedingAmount);
-  if (numericalAmount === NaN || numericalAmount <= 0) {
+  if (numericalAmount.isNaN() || numericalAmount <= 0) {
     debug(chalk.red(`[ERROR]: Invalid entry detected: ${feedingAmount}.`));
     return;
   }

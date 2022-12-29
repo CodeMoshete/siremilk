@@ -15,7 +15,7 @@ function generateEntry(timestamp, amount) {
   return html;
 }
 
-function getContent(contentPath, queueName) {
+function getContent(contentPath) {
   let entriesHtml = '';
   if (fs.existsSync(contentPath)) {
     const entriesContent = JSON.parse(fs.readFileSync(contentPath));
@@ -51,7 +51,7 @@ exports.showDashboard = async function showDashboard(serverIp) {
   const dateStr = dateTime.toLocaleDateString().split('/').join('-');
   const feedFileName = `feeding-${dateStr}.json`;
   const todaysFeedingsPath = path.join(global.appRoot, 'siremilk_data', feedFileName);
-  html = html.replace('/*ENTRIES-CONTENT*/', getContent(todaysFeedingsPath, 'pending'));
+  html = html.replace('/*ENTRIES-CONTENT*/', getContent(todaysFeedingsPath));
 
   return html;
 };

@@ -2,7 +2,7 @@
 function deleteEntry(timestamp) {
   const serverAddress = '/*SERVER-ADDRESS*/';
   const bodyData = {
-    timestamp: timestamp,
+    timestamp
   };
 
   const myHeaders = new Headers();

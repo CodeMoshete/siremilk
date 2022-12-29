@@ -44,13 +44,13 @@ exports.showDashboard = async function showDashboard(serverIp, clientIp) {
   const numEntiesToDisplay = Math.min(allEntriesKeys.length, 10);
   let amountFed = 0;
   for (let i = 0; i < numEntiesToDisplay; i += 1) {
-    const feedingTime = allEntriesKeys[numKeys - 1 - i]; //Show in reverse...
+    const feedingTime = allEntriesKeys[numKeys - 1 - i]; // Show in reverse...
     const feedingAmt = entriesContent[feedingTime];
     amountFed += entriesContent[feedingTime].amount;
     entryContent += generateEntry(feedingTime, feedingAmt);
   }
 
-  const amountFedContent = `CURRENT AMOUNT FED TODAY: ${amountFed} oz.`
+  const amountFedContent = `CURRENT AMOUNT FED TODAY: ${amountFed} oz.`;
   html = html.split('/*TODAYS-DATE*/').join(dateTime.toLocaleDateString());
   html = html.split('/*AMOUNT-FED*/').join(amountFedContent);
   html = html.split('/*ENTRIES-CONTENT*/').join(entryContent);
