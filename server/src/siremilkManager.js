@@ -21,6 +21,11 @@ exports.logFeeding = function logFeeding(feedingAmount) {
     messagesContent = JSON.parse(fs.readFileSync(feedFilePath));
   }
   messagesContent[dateTime.toLocaleTimeString()] = { amount: numericalAmount };
+
+  if (!fs.existsSync(dataPath)) {
+    fs.mkdirSync(dataPath);
+  }
+
   fs.writeFileSync(feedFilePath, JSON.stringify(messagesContent, null, 2));
 };
 
